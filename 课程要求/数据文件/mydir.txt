@@ -1,0 +1,26 @@
+selected dirs
+C:\Windows\addins\,D,time,size
+c:\windows\SystemApps\Microsoft.MicrosoftEdgeDevToolsClient_8wekyb3d8bbwe\23\VisualProfiler\,D,time,size
+c:\windows\Microsoft.NET\assembly\GAC_MSIL\System.Web.Extensions\v4.0_4.0.0.0__31bf3856ad364e35\,D,time,size
+c:\windows\assembly\GAC_MSIL\System.Configuration.Resources\,D,time,size
+c:\windows\assembly\NativeImages_v4.0.30319_32\Microsoft.P047767ce#\df35fbaf49a0ed78b4bcb5dca84a1200\,D,time,size
+c:\windows\System32\Microsoft\,D,time,size
+c:\windows\System32\DriverStore\FileRepository\netelx.inf_amd64_7812e4e45c4a5eb1\,D,time,size
+c:\windows\WinSxS\wow64_microsoft-windows-consolelogon-library_31bf3856ad364e35_10.0.22621.1635_none_6f7c0816d6fd2884\,D,time,size
+c:\windows\WinSxS\Temp\InFlight\0d6c16ef94cad901780300008868a868\wow64_microsoft-windows-w..owsupdateclient-aux_31bf3856ad364e35_10.0.22621.1635_none_7f1aecf26d5f6d5e\,D,time,size
+c:\windows\WinSxS\Temp\InFlight\07a4c8910be6d9011008000030655c32\wow64_microsoft-windows-s..ty-cng-keyisolation_31bf3856ad364e35_10.0.22621.1555_none_ae70c2a9a61589aa\r\,D,time,size
+c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\amd64_windows-id-connecte..nt-provider-wlidcli_31bf3856ad364e35_10.0.22621.608_none_03316f1e826b2dff\r\,D,time,size
+c:\windows\WinSxS\Temp\InFlight\0d6c16ef94cad901780300008868a868\amd64_dual_prnms003.inf_31bf3856ad364e35_10.0.22621.1702_none_f65b8114be143a37\f\Amd64\,D,time,size
+c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\amd64_microsoft-windows-s..-userexperienceinfo_31bf3856ad364e35_10.0.22621.608_none_1d098321d61f5801\f\,D,time,size
+c:\windows\WinSxS\amd64_userexperience-desktop_31bf3856ad364e35_10.0.22621.2506_none_0c3051efe5e9b59a\CBS\Public\,D,time,size
+c:\windows\WinSxS\Temp\InFlight\07a4c8910be6d9011008000030655c32\amd64_microsoft-windows-s..ity-aadtb.resources_31bf3856ad364e35_10.0.22621.900_zh-cn_6e9a9535c71ac87f\r\,D,time,size
+c:\windows\WinSxS\amd64_microsoft.virtualiz..ent.rdpclientaxhost_31bf3856ad364e35_10.0.22621.2861_none_8701265cf14ac890\r\,D,time,size
+c:\windows\WinSxS\amd64_microsoft-windows-w..d-line-utility-base_31bf3856ad364e35_10.0.22621.819_none_700a69898c62232f\,D,time,size
+c:\windows\WinSxS\amd64_microsoft-windows-s..y-spp-virtualdevice_31bf3856ad364e35_10.0.22621.2715_none_993530366a7082a9\,D,time,size
+c:\windows\WinSxS\amd64_microsoft-windows-onecore-ras-base-vpn_31bf3856ad364e35_10.0.22621.2070_none_fc75546e5996e240\,D,time,size
+c:\windows\WinSxS\amd64_microsoft-windows-m..ation-mfmediaengine_31bf3856ad364e35_10.0.22621.2792_none_e0233d45e84f6f2d\f\,D,time,size
+c:\windows\WinSxS\amd64_microsoft-windows-font-fms.resources_31bf3856ad364e35_10.0.22621.1194_sl-si_c9e1afbfc8db22fc\r\,D,time,size
+c:\windows\WinSxS\amd64_microsoft-windows-d..appushsvc.resources_31bf3856ad364e35_10.0.22621.1_en-us_5dcecf4be4b7da15\,D,time,size
+c:\windows\WinSxS\amd64_dual_usb4hostrouter.inf_31bf3856ad364e35_10.0.22621.2215_none_243716592d122dcf\f\,D,time,size
+c:\windows\WinSxS\amd64_bth-user.resources_31bf3856ad364e35_10.0.22621.1_en-us_c85042866cabc0bf\,D,time,size
+end of dirs

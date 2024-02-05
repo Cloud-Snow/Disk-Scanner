@@ -1,0 +1,93 @@
+目录：c:\windows\
+ dirN=67062, fileN=179257, Maxdepth=15
+孩子兄弟树：TreeDepth=34374,MaxQue=161
+//筛选目录：134//筛选文件：277
+//最大全路径名长度：225
+ Max路径名:<<c:\windows\WinSxS\Temp\InFlight\ae4e152259ffd901a5030000541bbc07\amd64_userexperience-fileexp_31bf3856ad364e35_10.0.22621.2070_none_315907e30f3141bf\n\FileExp\FileExplorerExtensions\Assets\images\contrast-standard\theme-dark>>
+^^^c:\windows\WinSxS\amd64_userexperience-desktop_31bf3856ad364e35_10.0.22621.2506_none_0c3051efe5e9b59a\CBS\Public\wsxpacks\Account\文件总大小差异：-2187076;
+^^^c:\windows\WinSxS\amd64_userexperience-desktop_31bf3856ad364e35_10.0.22621.2506_none_0c3051efe5e9b59a\CBS\Public\wsxpacks\Account\文件个数差异：-2;
+^^^c:\windows\WinSxS\amd64_userexperience-desktop_31bf3856ad364e35_10.0.22621.2506_none_0c3051efe5e9b59a\CBS\Public\wsxpacks\Account\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:48
+^^^c:\windows\WinSxS\amd64_userexperience-desktop_31bf3856ad364e35_10.0.22621.2506_none_0c3051efe5e9b59a\CBS\Public\wsxpacks\Account\最晚时间文件：,大小 0字节;File time: 1970-01-01 08:00:00
+--- 共比较111个目录，有4个差异！
+^^^c:\windows\assembly\NativeImages_v2.0.50727_64\Temp\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\assembly\GAC_MSIL\System.IO.Log.Resources\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\assembly\NativeImages_v4.0.30319_64\Microsoft.W79a81d80#\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\Microsoft.NET\assembly\GAC_MSIL\System.Reflection.Primitives\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\Microsoft.NET\assembly\GAC_MSIL\System.Reflection.Context.resources\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\assembly\NativeImages_v4.0.30319_64\Microsoft.C42fcb97c#\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\assembly\GAC_MSIL\Microsoft.VisualStudio.Tools.Office.Contract.v10.0\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\assembly\GAC_MSIL\Microsoft.PowerShell.Commands.Management\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\assembly\GAC_MSIL\Microsoft.Office.Interop.Visio.SaveAsWeb\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\0d6c16ef94cad901780300008868a868\wow64_windows-staterepository_31bf3856ad364e35_10.0.22621.1485_none_e6f24cf97908af05\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\ae4e152259ffd901a5030000541bbc07\amd64_userexperience-core_31bf3856ad364e35_10.0.22621.2070_none_984454904632d0eb\n\Core\StartMenu\Assets\FileIcons\32\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\ae4e152259ffd901a5030000541bbc07\amd64_userexperience-desktop_31bf3856ad364e35_10.0.22621.2070_none_0c6dec41e5ba4180\CBS\SearchUx.MiniUI\Assets\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\wow64_microsoft-windows-msftedit_31bf3856ad364e35_10.0.22621.608_none_426e0996348c1bed\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\0d6c16ef94cad901780300008868a868\amd64_microsoft-windows-shell-customshellhost_31bf3856ad364e35_10.0.22621.1635_none_6869b4061aa6d795\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\wow64_microsoft-windows-installer-sip_31bf3856ad364e35_10.0.22621.608_none_9fccd98b159edcd8\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\wow64_microsoft-windows-f..mutilityrefslibrary_31bf3856ad364e35_10.0.22621.1194_none_e65c531dfeee3dda\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\0d6c16ef94cad901780300008868a868\amd64_microsoft-windows-refs_31bf3856ad364e35_10.0.22621.1702_none_863b9f969895dab8\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\0d6c16ef94cad901780300008868a868\amd64_microsoft-windows-p..ns-platform-library_31bf3856ad364e35_10.0.22621.1635_none_66673c9bfe5b9211\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\07a4c8910be6d9011008000030655c32\wow64_microsoft-windows-mfasfsrcsnk_31bf3856ad364e35_10.0.22621.1778_none_aa9e33f6eca0ed3f\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\a7719eb69217da0187040000dc80f86e\amd64_userexperience-desktop_31bf3856ad364e35_10.0.22621.2215_none_0c51d8c5e5d0617d\CBS\webapps\guidedsetup\network\area-content\et-EE\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\07a4c8910be6d9011008000030655c32\wow64_microsoft-windows-execmodel-client_31bf3856ad364e35_10.0.22621.608_none_840ce7d722d918b1\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\amd64_multipoint-wmstoastapi_31bf3856ad364e35_10.0.22621.1_none_63292bc17238822a\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\ae4e152259ffd901a5030000541bbc07\amd64_microsoft-windows-pnpdevicemanager_31bf3856ad364e35_10.0.22621.1635_none_f3a945dd9b2591dc\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\0d6c16ef94cad901780300008868a868\amd64_microsoft-windows-directx-direct3d9on12_31bf3856ad364e35_10.0.22621.1194_none_bdca32a0135354d0\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\amd64_microsoft-windows-wdf-usermodelibrary_31bf3856ad364e35_10.0.22621.608_none_bb31c5a0b3fff003\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\a7719eb69217da0187040000dc80f86e\amd64_microsoft-windows-security-ngc-kspsvc_31bf3856ad364e35_10.0.22621.2215_none_47f6a408b5cdf2d8\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\a7719eb69217da0187040000dc80f86e\amd64_microsoft-windows-s..workstation-license_31bf3856ad364e35_10.0.22621.1635_none_454a5c92875d93f4\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\a7719eb69217da0187040000dc80f86e\amd64_microsoft-windows-s..riencehost.appxmain_31bf3856ad364e35_10.0.22621.2070_none_db53e93f2dd23b2e\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\07a4c8910be6d9011008000030655c32\amd64_userexperience-desktop_31bf3856ad364e35_10.0.22621.1928_none_0c06e35de6088e27\CBS\Cortana.UI\Assets\Icons\contrast-white\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\a7719eb69217da0187040000dc80f86e\amd64_microsoft-windows-internal-openwithhost_31bf3856ad364e35_10.0.22621.1778_none_65a9c918fbbbb3ed\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\a7719eb69217da0187040000dc80f86e\amd64_microsoft-windows-ieframe.resources_31bf3856ad364e35_11.0.22621.1485_zh-cn_12f2134759d4e8e3\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\amd64_userexperience-fileexp_31bf3856ad364e35_10.0.22621.2792_none_310f2b730f686b46\FileExp\FileExplorerExtensions\Assets\images\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\amd64_microsoft-windows-gdi32_31bf3856ad364e35_10.0.22621.608_none_bbc7103a124b5869\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\a7719eb69217da0187040000dc80f86e\amd64_microsoft-windows-a..ence-infrastructure_31bf3856ad364e35_10.0.22621.2215_none_b50cf02bc8400aa7\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\amd64_microsoft-windows-d..japanese-customizer_31bf3856ad364e35_10.0.22621.608_none_c53185901ffa48b5\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\amd64_dual_ntprint4.inf_31bf3856ad364e35_10.0.22621.1555_none_2a2d89cafdd323fd\Amd64\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\07a4c8910be6d9011008000030655c32\amd64_microsoft-windows-ncryptprov-dll_31bf3856ad364e35_10.0.22621.1635_none_fe487c650fb9412f\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\07a4c8910be6d9011008000030655c32\amd64_dual_helloface.inf_31bf3856ad364e35_10.0.22621.1635_none_1b109bcc844f4c10\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+--- 共比较111个目录，有38个差异！
+^^^c:\windows\assembly\NativeImages_v2.0.50727_64\Temp\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\assembly\GAC_MSIL\System.IO.Log.Resources\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\assembly\NativeImages_v4.0.30319_64\Microsoft.W79a81d80#\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\Microsoft.NET\assembly\GAC_MSIL\System.Reflection.Primitives\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\Microsoft.NET\assembly\GAC_MSIL\System.Reflection.Context.resources\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\assembly\NativeImages_v4.0.30319_64\Microsoft.C42fcb97c#\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\assembly\GAC_MSIL\Microsoft.VisualStudio.Tools.Office.Contract.v10.0\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\assembly\GAC_MSIL\Microsoft.PowerShell.Commands.Management\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\assembly\GAC_MSIL\Microsoft.Office.Interop.Visio.SaveAsWeb\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\0d6c16ef94cad901780300008868a868\wow64_windows-staterepository_31bf3856ad364e35_10.0.22621.1485_none_e6f24cf97908af05\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\ae4e152259ffd901a5030000541bbc07\amd64_userexperience-core_31bf3856ad364e35_10.0.22621.2070_none_984454904632d0eb\n\Core\StartMenu\Assets\FileIcons\32\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\ae4e152259ffd901a5030000541bbc07\amd64_userexperience-desktop_31bf3856ad364e35_10.0.22621.2070_none_0c6dec41e5ba4180\CBS\SearchUx.MiniUI\Assets\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\wow64_microsoft-windows-msftedit_31bf3856ad364e35_10.0.22621.608_none_426e0996348c1bed\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\0d6c16ef94cad901780300008868a868\amd64_microsoft-windows-shell-customshellhost_31bf3856ad364e35_10.0.22621.1635_none_6869b4061aa6d795\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\wow64_microsoft-windows-installer-sip_31bf3856ad364e35_10.0.22621.608_none_9fccd98b159edcd8\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\wow64_microsoft-windows-f..mutilityrefslibrary_31bf3856ad364e35_10.0.22621.1194_none_e65c531dfeee3dda\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\0d6c16ef94cad901780300008868a868\amd64_microsoft-windows-refs_31bf3856ad364e35_10.0.22621.1702_none_863b9f969895dab8\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\0d6c16ef94cad901780300008868a868\amd64_microsoft-windows-p..ns-platform-library_31bf3856ad364e35_10.0.22621.1635_none_66673c9bfe5b9211\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\07a4c8910be6d9011008000030655c32\wow64_microsoft-windows-mfasfsrcsnk_31bf3856ad364e35_10.0.22621.1778_none_aa9e33f6eca0ed3f\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\a7719eb69217da0187040000dc80f86e\amd64_userexperience-desktop_31bf3856ad364e35_10.0.22621.2215_none_0c51d8c5e5d0617d\CBS\webapps\guidedsetup\network\area-content\et-EE\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\07a4c8910be6d9011008000030655c32\wow64_microsoft-windows-execmodel-client_31bf3856ad364e35_10.0.22621.608_none_840ce7d722d918b1\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\amd64_multipoint-wmstoastapi_31bf3856ad364e35_10.0.22621.1_none_63292bc17238822a\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\ae4e152259ffd901a5030000541bbc07\amd64_microsoft-windows-pnpdevicemanager_31bf3856ad364e35_10.0.22621.1635_none_f3a945dd9b2591dc\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\0d6c16ef94cad901780300008868a868\amd64_microsoft-windows-directx-direct3d9on12_31bf3856ad364e35_10.0.22621.1194_none_bdca32a0135354d0\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\amd64_microsoft-windows-wdf-usermodelibrary_31bf3856ad364e35_10.0.22621.608_none_bb31c5a0b3fff003\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\a7719eb69217da0187040000dc80f86e\amd64_microsoft-windows-security-ngc-kspsvc_31bf3856ad364e35_10.0.22621.2215_none_47f6a408b5cdf2d8\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\a7719eb69217da0187040000dc80f86e\amd64_microsoft-windows-s..workstation-license_31bf3856ad364e35_10.0.22621.1635_none_454a5c92875d93f4\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\a7719eb69217da0187040000dc80f86e\amd64_microsoft-windows-s..riencehost.appxmain_31bf3856ad364e35_10.0.22621.2070_none_db53e93f2dd23b2e\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\07a4c8910be6d9011008000030655c32\amd64_userexperience-desktop_31bf3856ad364e35_10.0.22621.1928_none_0c06e35de6088e27\CBS\Cortana.UI\Assets\Icons\contrast-white\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\a7719eb69217da0187040000dc80f86e\amd64_microsoft-windows-internal-openwithhost_31bf3856ad364e35_10.0.22621.1778_none_65a9c918fbbbb3ed\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\a7719eb69217da0187040000dc80f86e\amd64_microsoft-windows-ieframe.resources_31bf3856ad364e35_11.0.22621.1485_zh-cn_12f2134759d4e8e3\r\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\amd64_userexperience-fileexp_31bf3856ad364e35_10.0.22621.2792_none_310f2b730f686b46\FileExp\FileExplorerExtensions\Assets\images\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\amd64_userexperience-desktop_31bf3856ad364e35_10.0.22621.2506_none_0c3051efe5e9b59a\CBS\Public\wsxpacks\Account\文件总大小差异：-2187076;
+^^^c:\windows\WinSxS\amd64_userexperience-desktop_31bf3856ad364e35_10.0.22621.2506_none_0c3051efe5e9b59a\CBS\Public\wsxpacks\Account\文件个数差异：-2;
+^^^c:\windows\WinSxS\amd64_userexperience-desktop_31bf3856ad364e35_10.0.22621.2506_none_0c3051efe5e9b59a\CBS\Public\wsxpacks\Account\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\amd64_userexperience-desktop_31bf3856ad364e35_10.0.22621.2506_none_0c3051efe5e9b59a\CBS\Public\wsxpacks\Account\最晚时间文件：,大小 0字节;File time: 1970-01-01 08:00:00
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\amd64_microsoft-windows-gdi32_31bf3856ad364e35_10.0.22621.608_none_bbc7103a124b5869\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\a7719eb69217da0187040000dc80f86e\amd64_microsoft-windows-a..ence-infrastructure_31bf3856ad364e35_10.0.22621.2215_none_b50cf02bc8400aa7\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\amd64_microsoft-windows-d..japanese-customizer_31bf3856ad364e35_10.0.22621.608_none_c53185901ffa48b5\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\8242303c0db3d901010000002c0d8024\amd64_dual_ntprint4.inf_31bf3856ad364e35_10.0.22621.1555_none_2a2d89cafdd323fd\Amd64\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\07a4c8910be6d9011008000030655c32\amd64_microsoft-windows-ncryptprov-dll_31bf3856ad364e35_10.0.22621.1635_none_fe487c650fb9412f\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+^^^c:\windows\WinSxS\Temp\InFlight\07a4c8910be6d9011008000030655c32\amd64_dual_helloface.inf_31bf3856ad364e35_10.0.22621.1635_none_1b109bcc844f4c10\f\最早时间文件：,大小 0字节;File time: 2024-01-05 22:55:49
+--- 共比较111个目录，有42个差异！

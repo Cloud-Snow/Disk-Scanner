@@ -8,7 +8,7 @@ int main()
 	string opfilePath;//批量文件操作文件路径
 	string opdirPath;//批量目录操作文件路径
 
-	string choice;
+	int choice;
 	int cnt = 0;//统计次数
 	dir_tree tree;
 	vector<vector<statInfo> >Sets;
@@ -26,14 +26,15 @@ int main()
 		printf("5 删除目录树\n");
 		printf("6 比较统计信息\n");
 		printf("7 查询统计信息\n");
+		printf("8 查询文件信息\n");
 		printf("--------------------------------\n");
 		if (cin.fail())
 		{
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(),'\n');//清空缓冲区
 		}
-		getline(cin, choice);
-		if (choice == "1")//扫描
+		cin >> choice;
+		if (choice == 1)//扫描
 		{
 			if (tree.root)
 			{
@@ -41,12 +42,12 @@ int main()
 				continue;
 			}
 			printf("请输入需要扫描的目录（如C:\\Windows\\）\n");
-			getline(cin, searchPath);
+			cin >> searchPath;
 			printf("请输入sql文件的生成位置(不需要文件名)\n");
-			getline(cin, sqlPath);
+			cin >> sqlPath;
 			tree.create(searchPath, sqlPath);
 		}
-		else if (choice == "2")
+		else if (choice == 2)
 		{
 			if (tree.root == NULL)
 			{
@@ -87,7 +88,7 @@ int main()
 			}
 
 		}
-		else if (choice == "3")
+		else if (choice == 3)
 		{
 			if (tree.root == NULL)
 			{
@@ -113,7 +114,7 @@ int main()
 				tree.mul_op_file(opfilePath);
 			}
 		}
-		else if (choice == "4")
+		else if (choice == 4)
 		{
 			if (tree.root == NULL)
 			{
@@ -139,19 +140,25 @@ int main()
 				tree.mul_op_dir(opdirPath);
 			}
 		}
-		else if (choice == "5")
+		else if (choice == 5)
 		{
 			if (tree.root == NULL)
 			{
 				printf("目录树尚未创建\n");
 				continue;
 			}
-			printf("正在删除目录树，其根目录为 %s\n", tree.root->name.c_str());
-			int n = tree.destroy(tree.root);
-			tree.root = NULL;
-			printf("删除成功，删除结点数 %d\n", n);
+			string choice2;
+			printf("目录树根目录为 %s ,是否删除？(y/n)\n", tree.root->name.c_str());
+			cin >> choice2;
+			if (choice2 == "y")
+			{
+				printf("正在删除目录树\n");
+				int n = tree.destroy(tree.root);
+				tree.root = NULL;
+				printf("删除成功，删除结点数 %d\n", n);
+			}
 		}
-		else if (choice == "6")
+		else if (choice == 6)
 		{
 			printf("共有 %d 次统计信息\n", cnt);
 			printf("请指定需要进行比较的统计信息（如输入1 2）\n");
@@ -169,9 +176,9 @@ int main()
 
 			tree.cmpStat(Sets[i - 1], Sets[j - 1]);
 		}
-		else if (choice == "7")
+		else if (choice == 7)
 		{
-			printf("共有 %d 次统计信息", cnt);
+			printf("共有 %d 次统计信息\n", cnt);
 			printf("请指定需要查询的统计信息\n");
 			int i = 0;
 			cin >> i;
@@ -187,7 +194,28 @@ int main()
 			}
 			printf("统计目录数 %zd\n", Sets[cnt - 1].size());
 		}
-		else if(choice == "0")
+		else if(choice == 8)
+		{
+			if (tree.root == NULL)
+			{
+				printf("目录树尚未创建\n");
+				continue;
+			}
+
+			printf("请输入全路径文件名\n");
+			string name;
+			cin >> name;
+			node* p = tree.find(name);
+			if (p == NULL)
+			{
+				printf("文件不存在\n");
+			}
+			else
+			{
+				p->print_node();
+			}
+		}
+		else if(choice == 0)
 		{
 			printf("Bye~\n");
 			break;

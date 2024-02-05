@@ -27,5 +27,7 @@ void node::print_node()//打印结点信息
 	struct tm* t = localtime(&time);//将time_t转换为年月日
 	printf("time: %d-%d-%d %d:%d:%d\t", t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
 	if (name.back() != '\\')//不是目录
-		printf("size: %d bytes\n", size);
+		printf("size: %d bytes", size);
+	
+	printf("\n");
 } 

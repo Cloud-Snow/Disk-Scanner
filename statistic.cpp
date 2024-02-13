@@ -161,7 +161,7 @@ node* dir_tree::rstat(string path)//统计指定目录及其子目录
 	if(p)//目录存在
 		for (node* q = p->child; q != NULL; q = q->brother)//统计子目录
 		{
-			if (q->name.back() == '\\')//是目录
+			if (q->name.back() == '\\')//只对目录进行统计
 			{
 				statNode(q, info);
 				info.print_info();
@@ -191,20 +191,22 @@ void dir_tree::cmpStat(vector<statInfo> infoSet1, vector<statInfo> infoSet2)
 		}
 
 		if (infoSet1[i].status == infoSet2[i].status && infoSet1[i].num_total == infoSet2[i].num_total && infoSet1[i].size_total == infoSet2[i].size_total &&
-			infoSet1[i].time_earliest == infoSet2[i].time_earliest && infoSet1[i].time_latest == infoSet2[i].time_latest)//无差异
+			infoSet1[i].time_earliest == infoSet2[i].time_earliest && infoSet1[i].time_latest == infoSet2[i].time_latest)
 		{
-			continue;
+			continue;//无差异，比较下一统计对象
 		}
 		
+		//有差异，差异数增加
 		cnt++;
-		printf("---%s\n", infoSet1[i].path.c_str());
 
+		//输出比较信息
+		printf("---%s\n", infoSet1[i].path.c_str());
 		if (infoSet1[i].status != infoSet2[i].status)
 			printf("统计状态 %s -> %s\n", infoSet1[i].statusInfo().c_str(), infoSet2[i].statusInfo().c_str());
 		if (infoSet1[i].num_total != infoSet2[i].num_total)
 			printf("文件总数 %d -> %d\n", infoSet1[i].num_total, infoSet2[i].num_total);
 		if (infoSet1[i].size_total != infoSet2[i].size_total)
-			printf("文件总大小 %d -> %d\n", infoSet1[i].size_total, infoSet2[i].size_total);
+			printf("文件总大小 %d bytes -> %d bytes\n", infoSet1[i].size_total, infoSet2[i].size_total);
 		if (!(infoSet1[i].time_earliest == infoSet2[i].time_earliest))
 		{
 			printf("最早时间文件\n");

@@ -17,7 +17,7 @@ const int FAILED = -1;//目录不存在
 const int NOFILE = 0;//目录中没有文件
 const int SUCCEED = 1;//目录中有文件
 
-class node//结点
+class node//目录树结点
 {
 public:
 	string name;//名称

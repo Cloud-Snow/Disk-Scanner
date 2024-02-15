@@ -25,9 +25,7 @@
     <ClCompile Include="dir_tree.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="node.cpp" />
-    <ClCompile Include="scan.cpp" />
     <ClCompile Include="simuOp.cpp" />
-    <ClCompile Include="sql.cpp" />
     <ClCompile Include="statistic.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

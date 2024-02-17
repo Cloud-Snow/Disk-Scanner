@@ -24,7 +24,7 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 	intptr_t handle;//_findfirst()返回的文件句柄
 	string temp;
 	queue<node*> node_q;//存放结点指针，用于构建子结点                            
-	ofstream sqlFile;
+	ofstream sqlFile;//文件流
 	clock_t start = 0, end = 0;
 
 	printf("正在扫描目录 %s\n", searchPath.c_str());
@@ -56,7 +56,7 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 			bool isfirst = true;
 			do//遍历子结点
 			{
-				if (file.name[0] != '.')
+				if (strcmp(file.name, ".") && strcmp(file.name, ".."))//忽略目录.和..
 				{
 					if ((fileNum + dirNum) % MAXSQL == 0)//刚开始扫描(sql语句为0)或单个文件sql语句满10000条，创建新文件
 					{
@@ -68,6 +68,7 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 						if (!sqlFile)//打开失败
 						{
 							cout << sqlPath + to_string((fileNum + dirNum) / MAXSQL + 1) + ".sql" << " 打开失败" << endl;
+							exit(-1);
 						}
 
 					}

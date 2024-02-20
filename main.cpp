@@ -20,7 +20,7 @@ int main()
 		printf("请选择功能\n");
 		printf("0 退出\n");
 		printf("1 扫描(生成sql文件和目录树)\n");
-		printf("2 统计文件信息\n");
+		printf("2 统计目录下文件信息\n");
 		printf("3 模拟文件操作\n");
 		printf("4 模拟目录操作\n");
 		printf("5 删除目录树\n");
@@ -68,9 +68,23 @@ int main()
 				string path;
 				printf("请输入需要统计的目录\n");
 				cin >> path;
+				if (path.back() != '\\')
+					path += '\\';
+
 				statInfo info(path);
-				tree.statNode(tree.find(path), info);
+				node* p = tree.find(path);
+				tree.statNode(p, info);
 				info.print_info();
+
+				if (p != NULL && p->child != NULL)
+				{
+					printf("---目录内容如下---\n");
+					for (p = p->child; p != NULL; p = p->brother)
+					{
+						p->print_node();
+					}
+				}
+
 			}
 			else if(choice2 == 2)
 			{
@@ -166,6 +180,12 @@ int main()
 		else if (choice == 6)//比较统计信息
 		{
 			printf("共有 %d 次统计信息\n", cnt);
+			if (cnt == 0)
+			{
+				printf("请进行一次批量统计\n");
+				continue;
+			}
+
 			printf("请指定需要进行比较的统计信息（如输入1 2）\n");
 			int i = 0, j = 0;
 			cin >> i >> j;
@@ -184,6 +204,12 @@ int main()
 		else if (choice == 7)//查询统计信息
 		{
 			printf("共有 %d 次统计信息\n", cnt);
+			if (cnt == 0)
+			{
+				printf("请进行一次批量统计\n");
+				continue;
+			}
+
 			printf("请指定需要查询的统计信息\n");
 			int i = 0;
 			cin >> i;

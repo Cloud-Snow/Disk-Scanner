@@ -58,16 +58,17 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 			{
 				if (strcmp(file.name, ".") && strcmp(file.name, ".."))//忽略目录.和..
 				{
-					if ((fileNum + dirNum) % MAXSQL == 0)//刚开始扫描(sql语句为0)或单个文件sql语句满10000条，创建新文件
+					if ((fileNum + dirNum) % MAXSQL == 0)//刚开始扫描(sql语句为0)或单个文件sql语句满MAXSQL条，创建新文件
 					{
 						if (fileNum + dirNum != 0)//最开始未打开文件流，不需要关闭
 						{
+							sqlFile.flush();
 							sqlFile.close();
 						}
 						sqlFile.open(sqlPath + to_string((fileNum + dirNum) / MAXSQL + 1) + ".sql", ios::out);
 						if (!sqlFile)//打开失败
 						{
-							cout << sqlPath + to_string((fileNum + dirNum) / MAXSQL + 1) + ".sql" << " 打开失败" << endl;
+							cout << "\n" << sqlPath + to_string((fileNum + dirNum) / MAXSQL + 1) + ".sql" << " 打开失败" << endl;
 							exit(-1);
 						}
 
@@ -90,7 +91,7 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 						p->name += "\\";
 						dirNum++;
 						node_q.push(p);
-						sqlFile << "insert into 目录 values('" + temp + "'," + to_string(file.time_write) + "); " << endl;
+						sqlFile << "insert into dirInfo values('" + temp + "'," + to_string(file.time_write) + "); " << endl;
 					}
 					else//是文件
 					{
@@ -102,7 +103,7 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 						}
 
 						fileNum++;
-						sqlFile << "insert into 文件 values('" + temp + "'," + to_string(file.time_write) + "," + to_string(file.size) + "); " << endl;
+						sqlFile << "insert into fileInfo values('" + temp + "'," + to_string(file.time_write) + "," + to_string(file.size) + "); " << endl;
 					}
 			  		printf("%d\t%d\r", dirNum, fileNum);
 					//p->print_node();
@@ -123,7 +124,8 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 
 	sqlFile.close();
 	end = clock();
-	printf("\n扫描完成，耗时%.3lfs\n", (double)(end-start)/CLOCKS_PER_SEC);
+	printf("%d\t%d\n", dirNum, fileNum);
+	printf("扫描完成，耗时%.3lfs\n", (double)(end-start)/CLOCKS_PER_SEC);
 	printf("文件和目录总数 %d\n", dirNum + fileNum);
 	printf("目录深度 %d\n", depth);
 	printf("最长全路径文件名 %s\n", fileName.c_str());

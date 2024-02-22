@@ -100,10 +100,7 @@ int main()
 					continue;//统计失败
 				}
 				Sets.push_back(infoSet);//存储结果
-
-				for (int i = 0; i < Sets[cnt - 1].size(); i++)//打印信息
-					Sets[cnt - 1][i].print_info();
-				printf("统计目录数 %zd\n", Sets[cnt - 1].size());
+				print_set(Sets[cnt - 1]);
 			}
 
 		}
@@ -219,11 +216,7 @@ int main()
 				continue;
 			}
 
-			for (int i = 0; i < Sets[cnt - 1].size(); i++)
-			{
-				Sets[cnt - 1][i].print_info();
-			}
-			printf("统计目录数 %zd\n", Sets[cnt - 1].size());
+			print_set(Sets[cnt - 1]);
 		}
 		else if(choice == 8)//查询文件信息
 		{

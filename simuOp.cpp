@@ -1,11 +1,11 @@
 #include "scan.h"
 
-void dir_tree::op_file(string opStatement)//对指定文件进行操作A,M,D
+bool dir_tree::op_file(string opStatement)//对指定文件进行操作A,M,D
 {
 	if (root == NULL)
 	{
 		printf("目录树未创建\n");
-		return;
+		return false;
 	}
 	
 	string path, opcode;//分离操作参数
@@ -30,7 +30,7 @@ void dir_tree::op_file(string opStatement)//对指定文件进行操作A,M,D
 		if (p == NULL)//文件所处目录不存在
 		{
 			printf("文件所在目录不存在, 无法添加\n");
-			return;
+			return false;
 		}
 
 		if (p->child == NULL)//目录下没有文件/子目录
@@ -52,6 +52,7 @@ void dir_tree::op_file(string opStatement)//对指定文件进行操作A,M,D
 		if (p == NULL)
 		{
 			printf("文件不存在，无法修改\n");
+			return false;
 		}
 		else//找到文件
 		{
@@ -67,6 +68,7 @@ void dir_tree::op_file(string opStatement)//对指定文件进行操作A,M,D
 		if (p == NULL)
 		{
 			printf("文件不存在，无法删除\n");
+			return false;
 		}
 		else//找到文件
 		{
@@ -75,7 +77,10 @@ void dir_tree::op_file(string opStatement)//对指定文件进行操作A,M,D
 		}
 	}
 	else
+	{
 		printf("操作不明\n");
+		return false;
+	}
 
 	printf("操作后：");
 	q = find(path);
@@ -84,15 +89,15 @@ void dir_tree::op_file(string opStatement)//对指定文件进行操作A,M,D
 	else
 		q->print_node();
 	
-	return;
+	return true;
 }
 
-void dir_tree::op_dir(string opStatement)//对指定目录进行操作, 仅进行删除操作
+bool dir_tree::op_dir(string opStatement)//对指定目录进行操作, 仅进行删除操作
 {
 	if (root == NULL)
 	{
 		printf("目录树未创建\n");
-		return;
+		return false;
 	}
 	string path, opcode;//分离操作参数
 	time_t time = 0;
@@ -112,23 +117,24 @@ void dir_tree::op_dir(string opStatement)//对指定目录进行操作, 仅进行删除操作
 		if (p == NULL)
 		{
 			printf("目录不存在，无法删除\n");
+			return false;
 		}
 		else
 		{
 			int n = destroy(p);
-			if (n)
-				printf("删除成功, 删除结点数 %d\n", n);
-			else
-				printf("结点为空，无法删除\n");
+			printf("删除成功, 删除结点数 %d\n", n);
 		}
 	}
 	else
+	{
 		printf("操作不明\n");
-
+		return false;
+	}
+		
 	printf("操作后\n");
 	rstat(path);
-	
-	return;
+
+	return true;
 }
 
 void dir_tree::mul_op_file(string filePath)
@@ -157,13 +163,19 @@ void dir_tree::mul_op_file(string filePath)
 	}
 
 	int cnt = 0;
-	string path, opcode, size, time;
+	int succed = 0;
+	int failed = 0;
 	while (getline(f, buf) && buf != "end of files")
 	{
 		cnt++;
-		op_file(buf);
+		if (op_file(buf))
+			succed++;
+		else
+			failed++;
 	}
 	printf("执行操作次数 %d\n", cnt);
+	printf("成功次数 %d\t失败次数 %d\n", succed, failed);
+
 	return;
 }
 
@@ -193,13 +205,18 @@ void dir_tree::mul_op_dir(string filePath)
 	}
 
 	int cnt = 0;
-	string path, opcode, size, time;
+	int succed = 0;
+	int failed = 0;
 	while (getline(f, buf) && buf != "end of dirs")
 	{
 		cnt++;
-		op_dir(buf);
+		if (op_dir(buf))
+			succed++;
+		else
+			failed++;
 	}
 	printf("执行操作次数 %d\n", cnt);
+	printf("成功次数 %d\t失败次数 %d\n", succed, failed);
 
 	return;
 }

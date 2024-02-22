@@ -48,6 +48,7 @@ public:
 	void print_info();//打印信息
 	string statusInfo();//将统计状态转换为文字，调用status，返回字符串
 };
+void print_set(vector<statInfo>& set);//打印信息集
 
 class dir_tree//目录树
 {
@@ -65,8 +66,8 @@ public:
 	node* find(string path);//寻找目录或文件，输入路径，返回对应结点指针，不存在则返回NULL
 	void cmpStat(vector<statInfo> infoSet1, vector<statInfo> infoSet2);//输入两个统计信息，对其进行比较，输出差异
 
-	void op_file(string opStatement);//对指定文件进行操作，输入操作指令
-	void op_dir(string opStatement);//对指定目录进行操作，输入操作指令
+	bool op_file(string opStatement);//对指定文件进行操作，输入操作指令
+	bool op_dir(string opStatement);//对指定目录进行操作，输入操作指令
 	void mul_op_file(string filePath);//批量进行文件操作，输入批量操作文件路径
 	void mul_op_dir(string filePath);//批量进行目录操作，输入批量操作文件路径
 	void opsplit(string opStatement, string& path, string& opcode, time_t& time, _fsize_t& size);//分离操作参数，输入操作指令，各部分存储于path、opcode、time、size

@@ -38,6 +38,24 @@ void statInfo::print_info()
 	}
 }
 
+void print_set(vector<statInfo>& set)
+{
+	int nofile = 0;//没有文件的目录数量
+	int notExist = 0;//不存在的目录数量
+	for (int i = 0; i < set.size(); i++)//打印信息
+	{
+		set[i].print_info();
+		if (set[i].status == FAILED)
+			notExist++;
+		if (set[i].status == NOFILE)
+			nofile++;
+	}
+	printf("统计目录数 %zd\n", set.size());
+	printf("没有文件的目录数 %d\n", nofile);
+	printf("不存在的目录数 %d\n", notExist);
+	return;
+}
+
 node* dir_tree::statNode(node* p, statInfo &info)
 {
 	info.num_total = 0;

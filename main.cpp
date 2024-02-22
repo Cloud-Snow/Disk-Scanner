@@ -34,6 +34,7 @@ int main()
 			cin.ignore(numeric_limits<streamsize>::max(),'\n');//清空缓冲区
 		}
 		cin >> choice;
+		cin.ignore();//忽略换行符
 
 		if (cin.fail())//cin读取错误，跳过后续操作
 			continue;
@@ -46,9 +47,9 @@ int main()
 				continue;
 			}
 			printf("请输入需要扫描的目录（如C:\\Windows\\）\n");
-			cin >> searchPath;
+			getline(cin, searchPath);
 			printf("请输入sql文件的生成位置(不需要文件名)\n");
-			cin >> sqlPath;
+			getline(cin, sqlPath);
 
 			tree.create(searchPath, sqlPath);//创建目录树并生成sql文件
 		}
@@ -67,7 +68,7 @@ int main()
 			{
 				string path;
 				printf("请输入需要统计的目录\n");
-				cin >> path;
+				getline(cin, path);
 				if (path.back() != '\\')
 					path += '\\';
 
@@ -91,7 +92,7 @@ int main()
 				cnt++;
 				printf("第%d次统计\n", cnt);
 				printf("请输入统计文件路径\n");
-				cin >> statPath;
+				getline(cin, statPath);
 
 				vector<statInfo> infoSet;
 				if (!tree.mul_stat(statPath, infoSet))//开始统计
@@ -126,7 +127,7 @@ int main()
 			else if (choice2 == 2)
 			{
 				printf("请输入批量操作文件路径\n");
-				cin >> opfilePath;
+				getline(cin, opfilePath);
 				tree.mul_op_file(opfilePath);
 			}
 		}
@@ -152,7 +153,7 @@ int main()
 			else if (choice2 == 2)
 			{
 				printf("请输入批量操作文件路径\n");
-				cin >> opdirPath;
+				getline(cin, opdirPath);
 				tree.mul_op_dir(opdirPath);
 			}
 		}
@@ -228,7 +229,7 @@ int main()
 
 			printf("请输入全路径文件名\n");
 			string name;
-			cin >> name;
+			getline(cin, name);
 			node* p = tree.find(name);
 			if (p == NULL)
 			{

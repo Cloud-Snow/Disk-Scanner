@@ -64,6 +64,7 @@ int main()
 			int choice2 = 0;
 			printf("1 单个目录统计（不计入统计次数）\t2批量统计\n");
 			cin >> choice2;
+			cin.ignore();
 			if (choice2 == 1)
 			{
 				string path;

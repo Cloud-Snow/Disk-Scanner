@@ -64,6 +64,7 @@ int main()
 			int choice2 = 0;
 			printf("1 单个目录统计（不计入统计次数）\t2批量统计\n");
 			cin >> choice2;
+			cin.ignore();
 			if (choice2 == 1)
 			{
 				string path;
@@ -116,6 +117,7 @@ int main()
 			int choice2 = 0;
 			printf("1 单条指令\t2 批量操作\n");
 			cin >> choice2;
+			cin.ignore();
 
 			if (choice2 == 1)
 			{
@@ -142,6 +144,7 @@ int main()
 			int choice2 = 0;
 			printf("1 单条指令\t2 批量操作\n");
 			cin >> choice2;
+			cin.ignore();
 
 			if (choice2 == 1)
 			{
@@ -188,6 +191,7 @@ int main()
 			printf("请指定需要进行比较的统计信息（如输入1 2）\n");
 			int i = 0, j = 0;
 			cin >> i >> j;
+			cin.ignore();
 			if (i > cnt || j > cnt|| i <= 0 || j <= 0)
 			{
 				if(i > cnt || i <= 0)
@@ -212,6 +216,7 @@ int main()
 			printf("请指定需要查询的统计信息\n");
 			int i = 0;
 			cin >> i;
+			cin.ignore();
 			if (i > cnt || i <= 0)
 			{
 				printf("不存在第 %d 次统计信息\n", i);

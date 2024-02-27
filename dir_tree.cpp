@@ -169,13 +169,13 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 	end = clock();
 	printf("%d\t%d\n", dirNum, fileNum);
 	printf("扫描完成，耗时%.3lfs\n", (double)(end-start)/CLOCKS_PER_SEC);
-	printf("文件和目录总数 %d\n", dirNum + fileNum);
-	printf("目录深度 %d\n", depth);
-	printf("最长全路径文件名 %s\n", fileName.c_str());
-	printf("最长全路径文件名长度 % zd\n", maxLen);
+	printf("文件和目录总数: %d\n", dirNum + fileNum);
+	printf("目录深度: %d\n", depth);
+	printf("最长全路径文件名: %s\n", fileName.c_str());
+	printf("最长全路径文件名长度： % zd\n", maxLen);
 	printf("目录树创建成功\n");
-	printf("目录树深度 %d\n", cal_depth());
-	printf("创建结点数 %d\n", sqlcnt + 1);
+	printf("目录树深度: %d\n", cal_depth());
+	printf("创建结点数： %d\n", sqlcnt + 1);
 	printf("共生成 %d 个sql文件，存储于 %s\n", sqlcnt / MAXSQL + 1, sqlPath.c_str());
 	printf("总计 %d 条sql插入语句\n", sqlcnt);
 }

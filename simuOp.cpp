@@ -1,5 +1,9 @@
 #include "scan.h"
 
+//功能：对指定文件进行操作
+//输入：操作指令，格式为："path,opcode(A/M/D),time,size"。其中A为增加，M为修改，D为删除
+//输出：操作前文件信息，操作结果，操作后文件信息
+//条件：目录树root不为NULL
 bool dir_tree::op_file(string opStatement)//对指定文件进行操作A,M,D
 {
 	if (root == NULL)
@@ -14,14 +18,14 @@ bool dir_tree::op_file(string opStatement)//对指定文件进行操作A,M,D
 	opsplit(opStatement, path, opcode, time, size);
 
 	printf("-------执行操作 %s\n", opStatement.c_str());
-	printf("操作前：");
+	printf("操作前:");
 	node* q = find(path);//查找文件
 	if (q == NULL)
 		printf("文件不存在\n");
 	else
 		q->print_node();
 
-	printf("操作结果：");
+	printf("操作结果:");
 	if (opcode == "A")
 	{
 		size_t pos = path.find_last_of("\\");
@@ -82,7 +86,7 @@ bool dir_tree::op_file(string opStatement)//对指定文件进行操作A,M,D
 		return false;
 	}
 
-	printf("操作后：");
+	printf("操作后:");
 	q = find(path);
 	if (q == NULL)
 		printf("文件不存在\n");
@@ -92,7 +96,11 @@ bool dir_tree::op_file(string opStatement)//对指定文件进行操作A,M,D
 	return true;
 }
 
-bool dir_tree::op_dir(string opStatement)//对指定目录进行操作, 仅进行删除操作
+//功能：对指定目录进行操作,仅支持删除操作
+//输入：操作指令，格式为："path,opcode(M),time,size"
+//输出：操作前目录及子目录信息，操作结果，操作后目录及子目录信息
+//条件：目录树root不为NULL
+bool dir_tree::op_dir(string opStatement)
 {
 	if (root == NULL)
 	{
@@ -131,12 +139,16 @@ bool dir_tree::op_dir(string opStatement)//对指定目录进行操作, 仅进行删除操作
 		return false;
 	}
 		
-	printf("操作后\n");
+	printf("操作后:\n");
 	rstat(path);
 
 	return true;
 }
 
+//功能：依据文件批量进行文件操作
+//输入：批量操作文件路径
+//输出：1.每次操作的输出信息，见op_file()；2.操作总数，成功次数，失败次数
+//条件：目录树root不为NULL
 void dir_tree::mul_op_file(string filePath)
 {
 	if (root == NULL)
@@ -173,12 +185,16 @@ void dir_tree::mul_op_file(string filePath)
 		else
 			failed++;
 	}
-	printf("执行操作次数 %d\n", cnt);
-	printf("成功次数 %d\t失败次数 %d\n", succed, failed);
+	printf("执行操作次数: %d\n", cnt);
+	printf("成功次数: %d\t失败次数: %d\n", succed, failed);
 
 	return;
 }
 
+//功能：依据文件批量进行目录操作
+//输入：批量操作文件路径
+//输出：1.每次操作的输出信息，见op_dir()；2.操作总数，成功次数，失败次数
+//条件：目录树root不为NULL
 void dir_tree::mul_op_dir(string filePath)
 {
 	if (root == NULL)
@@ -215,13 +231,17 @@ void dir_tree::mul_op_dir(string filePath)
 		else
 			failed++;
 	}
-	printf("执行操作次数 %d\n", cnt);
-	printf("成功次数 %d\t失败次数 %d\n", succed, failed);
+	printf("执行操作次数: %d\n", cnt);
+	printf("成功次数: %d\t失败次数: %d\n", succed, failed);
 
 	return;
 }
 
-void dir_tree::opsplit(string opStatement, string& path, string& opcode, time_t& time, _fsize_t& size)//分离操作参数
+//功能：分离操作操作语句中各项参数
+//输入：操作语句，各种参数引用传入，包括路径、操作方式、时间、大小
+//输出：通过引用传参返回结果
+//条件：无
+void dir_tree::opsplit(string opStatement, string& path, string& opcode, time_t& time, _fsize_t& size)
 {
 	string ssize, stime;
 	stringstream iss(opStatement);
@@ -229,10 +249,12 @@ void dir_tree::opsplit(string opStatement, string& path, string& opcode, time_t&
 	getline(iss, opcode, ',');
 	getline(iss, stime, ',');
 	getline(iss, ssize, '\n');
+	//当进行删除操作时，size和time分别为"size"和"time"，此时不用为time和size赋值；
+	//进行其他操作时，time和size应为数字，要将string类型的stime和ssize转换成相应类型
 	if (stime != "time")
-		time = (time_t)stoi(stime);
+		time = stoll(stime);
 	if (ssize != "size")
-		size = (_fsize_t)stoi(ssize);
+		size = (_fsize_t)stol(ssize);
 
 	return;
 }

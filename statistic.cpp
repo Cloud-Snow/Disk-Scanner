@@ -1,10 +1,15 @@
 #include "scan.h"
 
+//功能：构造函数，创建统计信息
+//输入：路径名path
+//输出：初始化成员变量path
+//条件：无
 statInfo::statInfo(string path)
 {
 	this->path = path;
 }
 
+//功能：依据statinfo成员变量status返回对应字符串信息
 string statInfo::statusInfo()
 {
 	string result;
@@ -220,21 +225,21 @@ void dir_tree::cmpStat(vector<statInfo> infoSet1, vector<statInfo> infoSet2)
 		//输出比较信息
 		printf("---%s\n", infoSet1[i].path.c_str());
 		if (infoSet1[i].status != infoSet2[i].status)
-			printf("统计状态 %s -> %s\n", infoSet1[i].statusInfo().c_str(), infoSet2[i].statusInfo().c_str());
+			printf("统计状态: %s -> %s\n", infoSet1[i].statusInfo().c_str(), infoSet2[i].statusInfo().c_str());
 		if (infoSet1[i].num_total != infoSet2[i].num_total)
-			printf("文件总数 %d -> %d\n", infoSet1[i].num_total, infoSet2[i].num_total);
+			printf("文件总数: %d -> %d\n", infoSet1[i].num_total, infoSet2[i].num_total);
 		if (infoSet1[i].size_total != infoSet2[i].size_total)
-			printf("文件总大小 %d bytes -> %d bytes\n", infoSet1[i].size_total, infoSet2[i].size_total);
+			printf("文件总大小: %d bytes -> %d bytes\n", infoSet1[i].size_total, infoSet2[i].size_total);
 		if (!(infoSet1[i].time_earliest == infoSet2[i].time_earliest))
 		{
-			printf("最早时间文件\n");
+			printf("最早时间文件:\n");
 			infoSet1[i].time_earliest.print_node();
 			printf("-> ");
 			infoSet2[i].time_earliest.print_node();
 		}
 		if (!(infoSet1[i].time_latest == infoSet2[i].time_latest))
 		{
-			printf("最晚时间文件\n");
+			printf("最晚时间文件:\n");
 			infoSet1[i].time_latest.print_node();
 			printf("-> ");
 			infoSet2[i].time_latest.print_node();

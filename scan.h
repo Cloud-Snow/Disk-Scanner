@@ -11,7 +11,7 @@
 #include <sstream>
 using namespace std;
 
-const int MAXSQL = 100000;//生成的sql文件所能包含的sql语句数量上限
+const int MAXSQL = 10000;//生成的sql文件所能包含的sql语句数量上限
 //统计结果状态
 const int FAILED = -1;//目录不存在
 const int NOFILE = 0;//目录中没有文件

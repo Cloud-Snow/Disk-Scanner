@@ -25,6 +25,7 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 	string temp;
 	queue<node*> node_q;//存放结点指针，用于构建子结点                            
 	ofstream sqlFile;//文件流
+	int sqlcnt = 0;//计数sql语句
 	clock_t start = 0, end = 0;
 
 	printf("正在扫描目录 %s\n", searchPath.c_str());
@@ -59,21 +60,6 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 			{
 				if (strcmp(file.name, ".") && strcmp(file.name, ".."))//忽略目录.和..
 				{
-					if ((fileNum + dirNum) % MAXSQL == 0)//刚开始扫描(sql语句为0)或单个文件sql语句满MAXSQL条，创建新文件
-					{
-						if (fileNum + dirNum != 0)//最开始未打开文件流，不需要关闭
-						{
-							sqlFile.flush();
-							sqlFile.close();
-						}
-						sqlFile.open(sqlPath + to_string((fileNum + dirNum) / MAXSQL + 1) + ".sql", ios::out);
-						if (!sqlFile)//打开失败
-						{
-							cout << "\n" << sqlPath + to_string((fileNum + dirNum) / MAXSQL + 1) + ".sql" << " 打开失败" << endl;
-							exit(-1);
-						}
-
-					}
 					temp = node_q.front()->name + file.name;
 
 					if (isfirst == true)//是第一个子结点
@@ -91,15 +77,27 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 					{
 						p->name += "\\";
 
-						num_total++;
-						size_total += file.size;
-						dirNum++;
 						node_q.push(p);
 						
-						//sqlFile << "insert into dirInfo values('" + temp + "'," + to_string(file.time_write) + "); " << endl;
 					}
 					else//是文件
 					{
+						if (sqlcnt % MAXSQL == 0)//刚开始扫描(sql语句为0)或单个文件sql语句满MAXSQL条，创建新文件
+						{
+							if (sqlFile.is_open())//如果文件已经打开，关闭
+							{
+								sqlFile.flush();
+								sqlFile.close();
+							}
+							sqlFile.open(sqlPath + to_string(sqlcnt / MAXSQL + 1) + ".sql", ios::out);
+							if (!sqlFile)//打开失败
+							{
+								cout << "\n" << sqlPath + to_string(sqlcnt / MAXSQL + 1) + ".sql" << " 打开失败" << endl;
+								exit(-1);
+							}
+
+						}
+
 						size_t len = temp.length();
 						if (len > maxLen)//寻找最长全路径文件名
 						{
@@ -111,11 +109,11 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 						num_total++;
 						size_total += file.size;
 						char s[500];
-						//sqlFile << "insert into fileInfo values('" + temp + "'," + to_string(file.time_write) + "," + to_string(file.size) + "); " << endl;
-						sprintf(s, "insert into fileInfo(path,name,size,time_w,time_w_64) values(\'%s\',\'%s\',%lu, %lld,\'%s\');\n", p->name.c_str(),file.name, p->size, p->time, timeStr(p->time).c_str());
+						sprintf(s, "insert into fileInfo(path,name,size,time_w_64,time_w) values(\'%s\',\'%s\',%lu, %lld,\'%s\');\n", p->name.c_str(),file.name, p->size, p->time, timeStr(p->time).c_str());
 
 						sqlFile << s;
-						//sqlFile << p->name << " " << p->size << " " << p->time << " " << timeStr(p->time) << " " << endl;
+						sqlcnt++;
+
 					}
 			  		printf("%d\t%d\r", dirNum, fileNum);
 					//p->print_node();
@@ -126,20 +124,37 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 			node* q = node_q.front();
 			if (q != root)//忽略根目录
 			{
+				if (sqlcnt % MAXSQL == 0)//刚开始扫描(sql语句为0)或单个文件sql语句满MAXSQL条，创建新文件
+				{
+					if (sqlFile.is_open())//如果文件已经打开，关闭
+					{
+						sqlFile.flush();
+						sqlFile.close();
+					}
+					sqlFile.open(sqlPath + to_string(sqlcnt / MAXSQL + 1) + ".sql", ios::out);
+					if (!sqlFile)//打开失败
+					{
+						cout << "\n" << sqlPath + to_string(sqlcnt / MAXSQL + 1) + ".sql" << " 打开失败" << endl;
+						exit(-1);
+					}
+
+				}
+				dirNum++;
+				//分离路径得目录名
 				string dirName = q->name;
 				dirName.pop_back();
 				int pos = dirName.find_last_of('\\');
 				dirName = dirName.substr(pos+1, string::npos);
 
 				char s[500];
-				sprintf(s, "insert into dirInfo(path,name,time_w,time_w_64,fileNum,fileSize) values(\'%s\',\'%s\',%lld,\'%s\',%d,%lu);\n", q->name.c_str(), dirName.c_str(), q->time, timeStr(q->time).c_str(), num_total, size_total);
+				sprintf(s, "insert into dirInfo(path,name,time_w_64,time_w,fileNum,fileSize) values(\'%s\',\'%s\',%lld,\'%s\',%d,%lu);\n", q->name.c_str(), dirName.c_str(), q->time, timeStr(q->time).c_str(), num_total, size_total);
 				sqlFile << s;
-				//sqlFile << q->name << " " << q->time << " " << timeStr(q->time) << " " << num_total << " " << size_total << endl;
+				sqlcnt++;
 			}
 			node_q.pop();
 		}
 	}
-	if (fileNum + dirNum == 0)
+	if (sqlcnt == 0)
 	{
 		printf("\n目录不存在或为空目录\n");
 		delete root;
@@ -147,7 +162,6 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 		return;
 	}
 		
-
 	sqlFile.close();
 	end = clock();
 	printf("%d\t%d\n", dirNum, fileNum);
@@ -158,9 +172,9 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 	printf("最长全路径文件名长度 % zd\n", maxLen);
 	printf("目录树创建成功\n");
 	printf("目录树深度 %d\n", cal_depth());
-	printf("创建结点数 %d\n", dirNum + fileNum + 1);
-	printf("共生成 %d 个sql文件，存储于 %s\n", (fileNum + dirNum) / MAXSQL + 1, sqlPath.c_str());
-	printf("总计 %d 条sql插入语句\n", dirNum + fileNum);
+	printf("创建结点数 %d\n", sqlcnt + 1);
+	printf("共生成 %d 个sql文件，存储于 %s\n", sqlcnt / MAXSQL + 1, sqlPath.c_str());
+	printf("总计 %d 条sql插入语句\n", sqlcnt);
 }
 
 int dir_tree::cal_depth()//层序遍历目录树，计算树深度

@@ -70,15 +70,15 @@ int main()
 				string path;
 				printf("请输入需要统计的目录\n");
 				getline(cin, path);
-				if (path.back() != '\\')
+				if (path.back() != '\\')//统一目录格式
 					path += '\\';
 
 				statInfo info(path);
-				node* p = tree.find(path);
-				tree.statNode(p, info);
-				info.print_info();
+				node* p = tree.find(path);//查找目录结点
+				tree.statNode(p, info);//统计目录信息
+				info.print_info();//输出统计信息
 
-				if (p != NULL && p->child != NULL)
+				if (p != NULL && p->child != NULL)//输出目录下内容
 				{
 					printf("---目录内容如下---\n");
 					for (p = p->child; p != NULL; p = p->brother)
@@ -102,7 +102,7 @@ int main()
 					continue;//统计失败
 				}
 				Sets.push_back(infoSet);//存储结果
-				print_set(Sets[cnt - 1]);
+				print_set(Sets[cnt - 1]);//输出统计信息
 			}
 
 		}
@@ -124,13 +124,13 @@ int main()
 				string opStatement;
 				printf("请输入指令（格式：文件名,A/M/D,time,size）\n");
 				getline(cin, opStatement);
-				tree.op_file(opStatement);
+				tree.op_file(opStatement);//文件操作
 			}
 			else if (choice2 == 2)
 			{
 				printf("请输入批量操作文件路径\n");
 				getline(cin, opfilePath);
-				tree.mul_op_file(opfilePath);
+				tree.mul_op_file(opfilePath);//批量文件操作
 			}
 		}
 		else if (choice == 4)//模拟目录操作
@@ -151,13 +151,13 @@ int main()
 				string opStatement;
 				printf("请输入指令（格式：目录,D,time,size）\n");
 				getline(cin,opStatement);
-				tree.op_dir(opStatement);
+				tree.op_dir(opStatement);//目录操作
 			}
 			else if (choice2 == 2)
 			{
 				printf("请输入批量操作文件路径\n");
 				getline(cin, opdirPath);
-				tree.mul_op_dir(opdirPath);
+				tree.mul_op_dir(opdirPath);//批量目录操作
 			}
 		}
 		else if (choice == 5)//删除目录树
@@ -174,7 +174,7 @@ int main()
 			if (choice2 == "y")
 			{
 				printf("正在删除目录树\n");
-				int n = tree.destroy(tree.root);
+				int n = tree.destroy(tree.root);//删除目录树
 				tree.root = NULL;
 				printf("删除成功，删除结点数 %d\n", n);
 			}
@@ -202,7 +202,7 @@ int main()
 			}
 			
 
-			tree.cmpStat(Sets[i - 1], Sets[j - 1]);
+			tree.cmpStat(Sets[i - 1], Sets[j - 1]);//比较统计信息差异
 		}
 		else if (choice == 7)//查询统计信息
 		{
@@ -223,7 +223,7 @@ int main()
 				continue;
 			}
 
-			print_set(Sets[cnt - 1]);
+			print_set(Sets[cnt - 1]);//输出统计信息
 		}
 		else if(choice == 8)//查询文件信息
 		{
@@ -236,14 +236,14 @@ int main()
 			printf("请输入全路径文件名\n");
 			string name;
 			getline(cin, name);
-			node* p = tree.find(name);
+			node* p = tree.find(name);//查找文件结点
 			if (p == NULL)
 			{
 				printf("文件不存在\n");
 			}
 			else
 			{
-				p->print_node();
+				p->print_node();//输出文件信息
 			}
 		}
 		else if(choice == 0)//退出

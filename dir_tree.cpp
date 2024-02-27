@@ -1,6 +1,9 @@
 #include "scan.h"
 
-
+//功能：1.扫描指定目录searchPath；2.将扫描信息以sql插入语句的形式写入sql文件中，存储与sqlPath目录下；3.在内存中创建以searchPath为根目录的目录树
+//输入：扫描目录string searchPath，sql文件存储路径string sqlPath
+//输出：1.扫描得到的信息，如文件数量，目录深度等；2.sql文件；3.以root为根结点的目录树
+//条件：dir_tree成员root需要为NULL
 void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立孩子兄弟树结构的目录树
 {
 	if (root != NULL)//避免重复创建目录树
@@ -177,6 +180,10 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 	printf("总计 %d 条sql插入语句\n", sqlcnt);
 }
 
+//功能：计算目录树深度
+//输入：调用dir_tree成员属性root
+//输出：目录树深度
+//条件：root不为NULL
 int dir_tree::cal_depth()//层序遍历目录树，计算树深度
 {
 	if (root == NULL)
@@ -211,6 +218,10 @@ int dir_tree::cal_depth()//层序遍历目录树，计算树深度
 	return depth;
 }
 
+//功能：删除结点及其子节点，释放空间
+//输入：结点指针node* p
+//输出：删除结点数
+//条件：p不为NULL
 int dir_tree::destroy(node* p)
 {
 	if (p == NULL)//结点为空，无法删除

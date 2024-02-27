@@ -25,9 +25,20 @@ void node::print_node()//打印结点信息
 	}
 	printf("%s\t", name.c_str());
 	struct tm* t = localtime(&time);//将time_t转换为年月日
-	printf("time: %d-%d-%d %d:%d:%d\t", t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
+	printf("time: %s", timeStr(time).c_str());
+	//printf("time: %d-%d-%d %d:%d:%d\t", t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
 	if (name.back() != '\\')//不是目录
-		printf("size: %d bytes", size);
+		printf("\tsize: %d bytes", size);
 	
 	printf("\n");
-} 
+}
+
+string timeStr(time_t time)
+{
+	struct tm* t = localtime(&time);
+	char s[30];
+	sprintf(s, "%d-%d-%d %d:%02d:%02d", t->tm_year + 1900, t->tm_mon + 1, t->tm_mday, t->tm_hour, t->tm_min, t->tm_sec);
+	string str(s);
+
+	return str;
+}

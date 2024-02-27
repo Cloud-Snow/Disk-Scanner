@@ -52,8 +52,9 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 				continue;
 			}
 			p = node_q.front();
-
-			bool isfirst = true;
+			int num_total = 0;//目录下文件总数
+			_fsize_t size_total = 0;//目录下文件总大小
+			bool isfirst = true;//区别孩子结点和兄弟结点建立
 			do//遍历子结点
 			{
 				if (strcmp(file.name, ".") && strcmp(file.name, ".."))//忽略目录.和..
@@ -89,9 +90,13 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 					if (file.attrib & _A_SUBDIR)//是子目录，压入队列
 					{
 						p->name += "\\";
+
+						num_total++;
+						size_total += file.size;
 						dirNum++;
 						node_q.push(p);
-						sqlFile << "insert into dirInfo values('" + temp + "'," + to_string(file.time_write) + "); " << endl;
+						
+						//sqlFile << "insert into dirInfo values('" + temp + "'," + to_string(file.time_write) + "); " << endl;
 					}
 					else//是文件
 					{
@@ -103,13 +108,34 @@ void dir_tree::create(string searchPath, string sqlPath)//层序遍历文件目录，建立
 						}
 
 						fileNum++;
-						sqlFile << "insert into fileInfo values('" + temp + "'," + to_string(file.time_write) + "," + to_string(file.size) + "); " << endl;
+						num_total++;
+						size_total += file.size;
+						char s[500];
+						//sqlFile << "insert into fileInfo values('" + temp + "'," + to_string(file.time_write) + "," + to_string(file.size) + "); " << endl;
+						sprintf(s, "insert into fileInfo(path,name,size,time_w,time_w_64) values(\'%s\',\'%s\',%lu, %lld,\'%s\');\n", p->name.c_str(),file.name, p->size, p->time, timeStr(p->time).c_str());
+
+						sqlFile << s;
+						//sqlFile << p->name << " " << p->size << " " << p->time << " " << timeStr(p->time) << " " << endl;
 					}
 			  		printf("%d\t%d\r", dirNum, fileNum);
 					//p->print_node();
 					isfirst = false;
 				}
 			} while (_findnext(handle, &file) == 0);
+			//由于需要计算目录下文件总数和总大小，故在遍历完该目录结点时输出目录信息
+			node* q = node_q.front();
+			if (q != root)//忽略根目录
+			{
+				string dirName = q->name;
+				dirName.pop_back();
+				int pos = dirName.find_last_of('\\');
+				dirName = dirName.substr(pos+1, string::npos);
+
+				char s[500];
+				sprintf(s, "insert into dirInfo(path,name,time_w,time_w_64,fileNum,fileSize) values(\'%s\',\'%s\',%lld,\'%s\',%d,%lu);\n", q->name.c_str(), dirName.c_str(), q->time, timeStr(q->time).c_str(), num_total, size_total);
+				sqlFile << s;
+				//sqlFile << q->name << " " << q->time << " " << timeStr(q->time) << " " << num_total << " " << size_total << endl;
+			}
 			node_q.pop();
 		}
 	}

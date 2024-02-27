@@ -32,7 +32,7 @@ public:
 	void print_node();//打印结点信息
 	bool operator== (const node& other);//重载运算符==，方便结点间进行比较
 };
-
+string timeStr(time_t time);//将时间转换为可读的字符串
 
 class statInfo//对某个目录进行统计分析的结果
 {

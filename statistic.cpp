@@ -95,6 +95,29 @@ node* dir_tree::statNode(node* p, statInfo &info)
 	return p;
 }
 
+node* dir_tree::rstat(string path)//Í³¼ÆÖ¸¶¨Ä¿Â¼¼°Æä×ÓÄ¿Â¼
+{
+	if (path.back() != '\\')
+		path += '\\';
+
+	statInfo info(path);
+	node* p = find(path);
+	statNode(p, info);//Í³¼ÆÖ¸¶¨Ä¿Â¼
+	info.print_info();
+
+	if (p)//Ä¿Â¼´æÔÚ
+		for (node* q = p->child; q != NULL; q = q->brother)//Í³¼Æ×ÓÄ¿Â¼
+		{
+			if (q->name.back() == '\\')//Ö»¶ÔÄ¿Â¼½øĞĞÍ³¼Æ
+			{
+				statNode(q, info);
+				info.print_info();
+			}
+		}
+
+	return p;
+}
+
 node* dir_tree::find(string path)//²éÕÒÖ¸¶¨Ä¿Â¼»òÎÄ¼ş
 {
 
@@ -164,29 +187,6 @@ bool dir_tree::mul_stat(string filePath, vector<statInfo> &infoSet)//ÒÀ¾İÎÄ¼şÄÚÈ
 	f.close();
 
 	return true;
-}
-
-node* dir_tree::rstat(string path)//Í³¼ÆÖ¸¶¨Ä¿Â¼¼°Æä×ÓÄ¿Â¼
-{
-	if (path.back() != '\\')
-		path += '\\';
-
-	statInfo info(path);
-	node* p = find(path);
-	statNode(p, info);//Í³¼ÆÖ¸¶¨Ä¿Â¼
-	info.print_info();
-
-	if(p)//Ä¿Â¼´æÔÚ
-		for (node* q = p->child; q != NULL; q = q->brother)//Í³¼Æ×ÓÄ¿Â¼
-		{
-			if (q->name.back() == '\\')//Ö»¶ÔÄ¿Â¼½øĞĞÍ³¼Æ
-			{
-				statNode(q, info);
-				info.print_info();
-			}
-		}
-
-	return p;
 }
 
 void dir_tree::cmpStat(vector<statInfo> infoSet1, vector<statInfo> infoSet2)

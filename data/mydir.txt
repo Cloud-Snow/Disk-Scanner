@@ -1,0 +1,5 @@
+selected dirs
+C:\Windows\Boot\,D,time,size
+C:\Windows\Branding\Basebrd\,D,time,size
+C:\Windows\Cursors\W11_dark_v2.2\classic\,D,time,size
+end of dirs

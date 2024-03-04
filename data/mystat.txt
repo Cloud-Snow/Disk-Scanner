@@ -1,0 +1,8 @@
+stat dirs
+C:\Windows\Boot\
+C:\Windows\Branding\Basebrd\
+C:\Windows\Cursors\W11_dark_v2.2\classic\
+C:\Windows\SystemResources\Windows.Management.AutopilotResources\
+C:\Windows\SystemResources\Windows.ParentalControlsSettings\
+C:\Windows\SysWOW64\1045\
+end of dirs

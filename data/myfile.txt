@@ -1,0 +1,6 @@
+selected files
+C:\Windows\Cursors\W11_dark_v2.2\classic\busy.ani,M,1704466548,81
+C:\Windows\SystemResources\Windows.Management.AutopilotResources\Windows.Management.AutopilotResources.pri,M,1704466548,1085231
+C:\Windows\SystemResources\Windows.ParentalControlsSettings\Windows.ParentalControlsSettings.pri,D,time,size
+C:\Windows\SysWOW64\1045\VsGraphicsResources.dll,A,1704466548,2182
+end of files

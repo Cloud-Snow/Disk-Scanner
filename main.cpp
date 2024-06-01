@@ -1,105 +1,106 @@
 #include "scan.h"
 
-ofstream logFile;//ÈÕÖ¾ÎÄ¼þ£¬½ö¼ÇÂ¼É¨ÃèÐÅÏ¢
+ofstream logFile;//ï¿½ï¿½Ö¾ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼É¨ï¿½ï¿½ï¿½ï¿½Ï¢
 int main()
 {
-	string searchPath;//É¨ÃèÄ¿Â¼Â·¾¶
-	string sqlPath;//sqlÎÄ¼þÉú³ÉÂ·¾¶
-	string statPath;//ÅúÁ¿Í³¼ÆÎÄ¼þÂ·¾¶
-	string opfilePath;//ÅúÁ¿ÎÄ¼þ²Ù×÷ÎÄ¼þÂ·¾¶
-	string opdirPath;//ÅúÁ¿Ä¿Â¼²Ù×÷ÎÄ¼þÂ·¾¶
+	string searchPath;//É¨ï¿½ï¿½Ä¿Â¼Â·ï¿½ï¿½
+	string sqlPath;//sqlï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
+	string statPath;//ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½
+	string opfilePath;//ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½
+	string opdirPath;//ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½
 
 	int choice;
-	int cnt = 0;//Í³¼Æ´ÎÊý
+	int cnt = 0;//Í³ï¿½Æ´ï¿½ï¿½ï¿½
 	dir_tree tree;
-	vector<vector<statInfo> >Sets;//ÅúÁ¿Í³¼ÆÐÅÏ¢µÄ¼¯ºÏ
+	vector<vector<statInfo> >Sets;//ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ä¼ï¿½ï¿½ï¿½
 
 	printf("Welcome To The Disk Scanner!\n");
+	printf("Here are the options:\n");
 	do
 	{
 		printf("--------------------------------\n");
-		printf("ÇëÑ¡Ôñ¹¦ÄÜ\n");
-		printf("0 ÍË³ö\n");
-		printf("1 É¨Ãè(Éú³ÉsqlÎÄ¼þºÍÄ¿Â¼Ê÷)\n");
-		printf("2 Í³¼ÆÄ¿Â¼ÏÂÎÄ¼þÐÅÏ¢\n");
-		printf("3 Ä£ÄâÎÄ¼þ²Ù×÷\n");
-		printf("4 Ä£ÄâÄ¿Â¼²Ù×÷\n");
-		printf("5 É¾³ýÄ¿Â¼Ê÷\n");
-		printf("6 ±È½ÏÍ³¼ÆÐÅÏ¢\n");
-		printf("7 ²éÑ¯Í³¼ÆÐÅÏ¢\n");
-		printf("8 ²éÑ¯ÎÄ¼þÐÅÏ¢\n");
-		printf("9 Çå¿ÕËùÓÐÍ³¼ÆÐÅÏ¢\n");
+		printf("ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½\n");
+		printf("0 ï¿½Ë³ï¿½\n");
+		printf("1 É¨ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½sqlï¿½Ä¼ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½)\n");
+		printf("2 Í³ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢\n");
+		printf("3 Ä£ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½\n");
+		printf("4 Ä£ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½\n");
+		printf("5 É¾ï¿½ï¿½Ä¿Â¼ï¿½ï¿½\n");
+		printf("6 ï¿½È½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢\n");
+		printf("7 ï¿½ï¿½Ñ¯Í³ï¿½ï¿½ï¿½ï¿½Ï¢\n");
+		printf("8 ï¿½ï¿½Ñ¯ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢\n");
+		printf("9 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢\n");
 		if (tree.root != NULL)
-			printf("---µ±Ç°Ä¿Â¼Ê÷¸ùÄ¿Â¼: %s\n", tree.root->name.c_str());
+			printf("---ï¿½ï¿½Ç°Ä¿Â¼ï¿½ï¿½ï¿½ï¿½Ä¿Â¼: %s\n", tree.root->name.c_str());
 		else
-			printf("---Ä¿Â¼Ê÷Î´´´½¨\n");
-		printf("---ÅúÁ¿Í³¼Æ´ÎÊý: %d\n", cnt);
+			printf("---Ä¿Â¼ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½\n");
+		printf("---ï¿½ï¿½ï¿½ï¿½Í³ï¿½Æ´ï¿½ï¿½ï¿½: %d\n", cnt);
 		printf("--------------------------------\n");
-		if (cin.fail())//cin¶ÁÈ¡´íÎó£¬²»´¦Àí½«ÎÞÏÞÑ­»·
+		if (cin.fail())//cinï¿½ï¿½È¡ï¿½ï¿½ï¿½ó£¬²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½
 		{
 			cin.clear();
-			cin.ignore(numeric_limits<streamsize>::max(), '\n');//Çå¿Õ»º³åÇø
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');//ï¿½ï¿½Õ»ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 		cin >> choice;
-		cin.ignore();//ºöÂÔ»»ÐÐ·û
+		cin.ignore();//ï¿½ï¿½ï¿½Ô»ï¿½ï¿½Ð·ï¿½
 
-		if (cin.fail())//cin¶ÁÈ¡´íÎó£¬Ìø¹ýºóÐø²Ù×÷
+		if (cin.fail())//cinï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			continue;
 
-		if (choice == 1)//É¨Ãè
+		if (choice == 1)//É¨ï¿½ï¿½
 		{
 			if (tree.root)
 			{
-				cout << "Ä¿Â¼Ê÷ÒÑ´´½¨£¬Æä¸ùÄ¿Â¼Îª " << tree.root->name << endl;
+				cout << "Ä¿Â¼ï¿½ï¿½ï¿½Ñ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼Îª " << tree.root->name << endl;
 				continue;
 			}
-			printf("ÇëÊäÈëÐèÒªÉ¨ÃèµÄÄ¿Â¼£¨ÈçC:\\Windows\\£©\n");
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÉ¨ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½C:\\Windows\\ï¿½ï¿½\n");
 
 			do
 			{
 				getline(cin, searchPath);
 			} while (searchPath.empty());
-			printf("ÇëÊäÈësqlÎÄ¼þµÄÉú³ÉÎ»ÖÃ(²»ÐèÒªÎÄ¼þÃû)\n");
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sqlï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½Òªï¿½Ä¼ï¿½ï¿½ï¿½)\n");
 			do
 			{
 				getline(cin, sqlPath);
 			} while (sqlPath.empty());
 
 			logFile.open("LOG.log", ios::out | ios::app);
-			tree.create(searchPath, sqlPath);//´´½¨Ä¿Â¼Ê÷²¢Éú³ÉsqlÎÄ¼þ
+			tree.create(searchPath, sqlPath);//ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sqlï¿½Ä¼ï¿½
 			logFile.close();
 		}
-		else if (choice == 2)//Í³¼ÆÎÄ¼þÐÅÏ¢
+		else if (choice == 2)//Í³ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢
 		{
 			if (tree.root == NULL)
 			{
-				printf("Ä¿Â¼Ê÷ÉÐÎ´´´½¨\n");
+				printf("Ä¿Â¼ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½\n");
 				continue;
 			}
 
 			int choice2 = 0;
-			printf("1 µ¥¸öÄ¿Â¼Í³¼Æ£¨²»¼ÆÈëÍ³¼Æ´ÎÊý£©\t2ÅúÁ¿Í³¼Æ\n");
+			printf("1 ï¿½ï¿½ï¿½ï¿½Ä¿Â¼Í³ï¿½Æ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½Æ´ï¿½ï¿½ï¿½ï¿½ï¿½\t2ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½\n");
 			cin >> choice2;
 			cin.ignore();
 			if (choice2 == 1)
 			{
 				string path;
-				printf("ÇëÊäÈëÐèÒªÍ³¼ÆµÄÄ¿Â¼\n");
+				printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÍ³ï¿½Æµï¿½Ä¿Â¼\n");
 				do
 				{
 					getline(cin, path);
 				} while (path.empty());
-				if (path.back() != '\\')//Í³Ò»Ä¿Â¼¸ñÊ½
+				if (path.back() != '\\')//Í³Ò»Ä¿Â¼ï¿½ï¿½Ê½
 					path += '\\';
 
 				statInfo info(path);
-				node* p = tree.find(path);//²éÕÒÄ¿Â¼½áµã
-				tree.statNode(p, info);//Í³¼ÆÄ¿Â¼ÐÅÏ¢
-				info.print_info();//Êä³öÍ³¼ÆÐÅÏ¢
+				node* p = tree.find(path);//ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½
+				tree.statNode(p, info);//Í³ï¿½ï¿½Ä¿Â¼ï¿½ï¿½Ï¢
+				info.print_info();//ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢
 
-				if (p != NULL && p->child != NULL)//Êä³öÄ¿Â¼ÏÂÄÚÈÝ
+				if (p != NULL && p->child != NULL)//ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				{
-					printf("---Ä¿Â¼ÄÚÈÝÈçÏÂ---\n");
+					printf("---Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½---\n");
 					for (p = p->child; p != NULL; p = p->brother)
 					{
 						p->print_node();
@@ -110,188 +111,188 @@ int main()
 			else if (choice2 == 2)
 			{
 				cnt++;
-				printf("µÚ%d´ÎÍ³¼Æ\n", cnt);
-				printf("ÇëÊäÈëÍ³¼ÆÎÄ¼þÂ·¾¶\n");
+				printf("ï¿½ï¿½%dï¿½ï¿½Í³ï¿½ï¿½\n", cnt);
+				printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½\n");
 				do
 				{
 					getline(cin, statPath);
 				} while (statPath.empty());
 
 				vector<statInfo> infoSet;
-				if (!tree.mul_stat(statPath, infoSet))//¿ªÊ¼Í³¼Æ
+				if (!tree.mul_stat(statPath, infoSet))//ï¿½ï¿½Ê¼Í³ï¿½ï¿½
 				{
 					cnt--;
-					continue;//Í³¼ÆÊ§°Ü
+					continue;//Í³ï¿½ï¿½Ê§ï¿½ï¿½
 				}
-				Sets.push_back(infoSet);//´æ´¢½á¹û
-				print_set(Sets[cnt - 1]);//Êä³öÍ³¼ÆÐÅÏ¢
+				Sets.push_back(infoSet);//ï¿½æ´¢ï¿½ï¿½ï¿½
+				print_set(Sets[cnt - 1]);//ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢
 			}
 
 		}
-		else if (choice == 3)//Ä£ÄâÎÄ¼þ²Ù×÷
+		else if (choice == 3)//Ä£ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
 			if (tree.root == NULL)
 			{
-				printf("Ä¿Â¼Ê÷ÉÐÎ´´´½¨\n");
+				printf("Ä¿Â¼ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½\n");
 				continue;
 			}
 
 			int choice2 = 0;
-			printf("1 µ¥ÌõÖ¸Áî\t2 ÅúÁ¿²Ù×÷\n");
+			printf("1 ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½\t2 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
 			cin >> choice2;
 			cin.ignore();
 
 			if (choice2 == 1)
 			{
 				string opStatement;
-				printf("ÇëÊäÈëÖ¸Áî£¨¸ñÊ½£ºÎÄ¼þÃû,A/M/D,time,size£©\n");
+				printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½î£¨ï¿½ï¿½Ê½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½,A/M/D,time,sizeï¿½ï¿½\n");
 				do
 				{
 					getline(cin, opStatement);
 				} while (opStatement.empty());
-				tree.op_file(opStatement);//ÎÄ¼þ²Ù×÷
+				tree.op_file(opStatement);//ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 			else if (choice2 == 2)
 			{
-				printf("ÇëÊäÈëÅúÁ¿ÎÄ¼þ²Ù×÷ÎÄ¼þÂ·¾¶\n");
+				printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½\n");
 				do
 				{
 					getline(cin, opfilePath);
 				} while (opfilePath.empty());
-				tree.mul_op_file(opfilePath);//ÅúÁ¿ÎÄ¼þ²Ù×÷
+				tree.mul_op_file(opfilePath);//ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 		}
-		else if (choice == 4)//Ä£ÄâÄ¿Â¼²Ù×÷
+		else if (choice == 4)//Ä£ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½
 		{
 			if (tree.root == NULL)
 			{
-				printf("Ä¿Â¼Ê÷ÉÐÎ´´´½¨\n");
+				printf("Ä¿Â¼ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½\n");
 				continue;
 			}
 
 			int choice2 = 0;
-			printf("1 µ¥ÌõÖ¸Áî\t2 ÅúÁ¿²Ù×÷\n");
+			printf("1 ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½\t2 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
 			cin >> choice2;
 			cin.ignore();
 
 			if (choice2 == 1)
 			{
 				string opStatement;
-				printf("ÇëÊäÈëÖ¸Áî£¨¸ñÊ½£ºÄ¿Â¼,D,time,size£©\n");
+				printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½î£¨ï¿½ï¿½Ê½ï¿½ï¿½Ä¿Â¼,D,time,sizeï¿½ï¿½\n");
 				do
 				{
 					getline(cin, opStatement);
 				} while (opStatement.empty());
-				tree.op_dir(opStatement);//Ä¿Â¼²Ù×÷
+				tree.op_dir(opStatement);//Ä¿Â¼ï¿½ï¿½ï¿½ï¿½
 			}
 			else if (choice2 == 2)
 			{
-				printf("ÇëÊäÈëÅúÁ¿Ä¿Â¼²Ù×÷ÎÄ¼þÂ·¾¶\n");
+				printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½\n");
 				do
 				{
 					getline(cin, opdirPath);
 				} while (opdirPath.empty());
-				tree.mul_op_dir(opdirPath);//ÅúÁ¿Ä¿Â¼²Ù×÷
+				tree.mul_op_dir(opdirPath);//ï¿½ï¿½ï¿½ï¿½Ä¿Â¼ï¿½ï¿½ï¿½ï¿½
 			}
 		}
-		else if (choice == 5)//É¾³ýÄ¿Â¼Ê÷
+		else if (choice == 5)//É¾ï¿½ï¿½Ä¿Â¼ï¿½ï¿½
 		{
 			if (tree.root == NULL)
 			{
-				printf("Ä¿Â¼Ê÷ÉÐÎ´´´½¨\n");
+				printf("Ä¿Â¼ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½\n");
 				continue;
 			}
 			string choice2;
-			printf("Ä¿Â¼Ê÷¸ùÄ¿Â¼Îª %s ,ÊÇ·ñÉ¾³ý£¿(y/n)\n", tree.root->name.c_str());
+			printf("Ä¿Â¼ï¿½ï¿½ï¿½ï¿½Ä¿Â¼Îª %s ,ï¿½Ç·ï¿½É¾ï¿½ï¿½ï¿½ï¿½(y/n)\n", tree.root->name.c_str());
 			cin >> choice2;
 			cin.ignore();
 			if (choice2 == "y")
 			{
-				printf("ÕýÔÚÉ¾³ýÄ¿Â¼Ê÷\n");
-				int n = tree.destroy(tree.root);//É¾³ýÄ¿Â¼Ê÷
-				printf("É¾³ý³É¹¦£¬É¾³ý½áµãÊý %d\n", n);
+				printf("ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½Ä¿Â¼ï¿½ï¿½\n");
+				int n = tree.destroy(tree.root);//É¾ï¿½ï¿½Ä¿Â¼ï¿½ï¿½
+				printf("É¾ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %d\n", n);
 			}
 		}
-		else if (choice == 6)//±È½ÏÍ³¼ÆÐÅÏ¢
+		else if (choice == 6)//ï¿½È½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢
 		{
-			printf("¹²ÓÐ %d ´ÎÍ³¼ÆÐÅÏ¢\n", cnt);
+			printf("ï¿½ï¿½ï¿½ï¿½ %d ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢\n", cnt);
 			if (cnt == 0)
 			{
-				printf("Çë½øÐÐÒ»´ÎÅúÁ¿Í³¼Æ\n");
+				printf("ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½\n");
 				continue;
 			}
 
-			printf("ÇëÖ¸¶¨ÐèÒª½øÐÐ±È½ÏµÄÍ³¼ÆÐÅÏ¢£¨ÈçÊäÈë1 2£©\n");
+			printf("ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ð±È½Ïµï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1 2ï¿½ï¿½\n");
 			int i = 0, j = 0;
 			cin >> i >> j;
 			cin.ignore();
 			if (i > cnt || j > cnt || i <= 0 || j <= 0)
 			{
 				if (i > cnt || i <= 0)
-					printf("²»´æÔÚµÚ %d ´ÎÍ³¼ÆÐÅÏ¢\n", i);
+					printf("ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ %d ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢\n", i);
 				if (j > cnt || i <= 0)
-					printf("²»´æÔÚµÚ %d ´ÎÍ³¼ÆÐÅÏ¢\n", j);
+					printf("ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ %d ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢\n", j);
 				continue;
 			}
 
 
-			tree.cmpStat(Sets[i - 1], Sets[j - 1]);//±È½ÏÍ³¼ÆÐÅÏ¢²îÒì
+			tree.cmpStat(Sets[i - 1], Sets[j - 1]);//ï¿½È½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½
 		}
-		else if (choice == 7)//²éÑ¯Í³¼ÆÐÅÏ¢
+		else if (choice == 7)//ï¿½ï¿½Ñ¯Í³ï¿½ï¿½ï¿½ï¿½Ï¢
 		{
-			printf("¹²ÓÐ %d ´ÎÍ³¼ÆÐÅÏ¢\n", cnt);
+			printf("ï¿½ï¿½ï¿½ï¿½ %d ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢\n", cnt);
 			if (cnt == 0)
 			{
-				printf("Çë½øÐÐÒ»´ÎÅúÁ¿Í³¼Æ\n");
+				printf("ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½\n");
 				continue;
 			}
 
-			printf("ÇëÖ¸¶¨ÐèÒª²éÑ¯µÄÍ³¼ÆÐÅÏ¢\n");
+			printf("ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ñ¯ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢\n");
 			int i = 0;
 			cin >> i;
 			cin.ignore();
 			if (i > cnt || i <= 0)
 			{
-				printf("²»´æÔÚµÚ %d ´ÎÍ³¼ÆÐÅÏ¢\n", i);
+				printf("ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ %d ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢\n", i);
 				continue;
 			}
 
-			print_set(Sets[cnt - 1]);//Êä³öÍ³¼ÆÐÅÏ¢
+			print_set(Sets[cnt - 1]);//ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢
 		}
-		else if (choice == 8)//²éÑ¯ÎÄ¼þÐÅÏ¢
+		else if (choice == 8)//ï¿½ï¿½Ñ¯ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢
 		{
 			if (tree.root == NULL)
 			{
-				printf("Ä¿Â¼Ê÷ÉÐÎ´´´½¨\n");
+				printf("Ä¿Â¼ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½\n");
 				continue;
 			}
 
-			printf("ÇëÊäÈëÈ«Â·¾¶ÎÄ¼þÃû\n");
+			printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È«Â·ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½\n");
 			string name;
 			do
 			{
 				getline(cin, name);
 			} while (name.empty());
-			node* p = tree.find(name);//²éÕÒÎÄ¼þ½áµã
+			node* p = tree.find(name);//ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½
 			if (p == NULL)
 			{
-				printf("ÎÄ¼þ²»´æÔÚ\n");
+				printf("ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
 			}
 			else
 			{
-				p->print_node();//Êä³öÎÄ¼þÐÅÏ¢
+				p->print_node();//ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ï¢
 			}
 		}
-		else if (choice == 9)//Çå¿ÕÍ³¼ÆÐÅÏ¢
+		else if (choice == 9)//ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢
 		{
-			printf("¹²ÓÐ %d ´ÎÍ³¼ÆÐÅÏ¢\n", cnt);
+			printf("ï¿½ï¿½ï¿½ï¿½ %d ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢\n", cnt);
 			if (cnt == 0)
 			{
-				printf("Çë½øÐÐÒ»´ÎÅúÁ¿Í³¼Æ\n");
+				printf("ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½\n");
 				continue;
 			}
 
-			printf("ÊÇ·ñÒªÇå¿ÕËùÓÐÍ³¼ÆÐÅÏ¢£¿(y/n)\n");
+			printf("ï¿½Ç·ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½(y/n)\n");
 			string choice2;
 			cin >> choice2;
 			cin.ignore();
@@ -299,10 +300,10 @@ int main()
 			{
 				Sets.clear();
 				cnt = 0;
-				printf("ÒÑÇå¿ÕËùÓÐÍ³¼ÆÐÅÏ¢\n");
+				printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í³ï¿½ï¿½ï¿½ï¿½Ï¢\n");
 			}
 		}
-		else if (choice == 0)//ÍË³ö
+		else if (choice == 0)//ï¿½Ë³ï¿½
 		{
 			printf("Bye~\n");
 			break;
